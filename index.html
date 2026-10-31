@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Recipe Finder || Discover Delicious Meals</title>
+        <!-- Google Fonts & Font Awesome Icons -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="app-wrapper">
+            <!-- Header & Search Section -->
+            <header class="hero-section">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+                    <h1>Recipe<span class="highlight">Finder</span></h1>
+                </div>
+                <p class="tagline">Search any ingredient or recipe to find delicious meals!</p>
+                
+                <div class="search-box-wrapper">
+                    <div class="search-input-container">
+                        <div class="search-input-group">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input
+                                type="text"
+                                id="ingredientInput"
+                                placeholder="Type ingredient or recipe (e.g. potato, samosa, chicken, paneer...)"
+                                autocomplete="off"
+                            />
+                            <button id="clearBtn" class="clear-btn" title="Clear input" style="display: none;">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                            <button id="searchButton" class="search-btn">
+                                <span>Search</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Auto-Suggest Dropdown Box (Shows matching ingredients & recipes) -->
+                        <div id="suggestionBox" class="suggestion-dropdown" style="display: none;"></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <div class="results-header" id="resultsHeader" style="display: none;">
+                    <div>
+                        <h2 id="resultsTitle">Search Results</h2>
+                        <p id="resultsSubtitle" class="results-subtitle">Found recipes based on your search</p>
+                    </div>
+                    <span id="resultsCount" class="results-badge">0 recipes</span>
+                </div>
+
+                <!-- Recipe Cards Grid -->
+                <div id="recipeContainer" class="recipe-grid">
+                    <div class="empty-state">
+                        <div class="empty-icon"><i class="fa-solid fa-kitchen-set"></i></div>
+                        <h3>Ready to Cook?</h3>
+                        <p>Search for an ingredient like potato, tomato, cheese or dish like samosa, burger to find recipes.</p>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Recipe Detail Modal -->
+            <div id="recipeModal" class="modal-overlay" style="display: none;">
+                <div class="modal-container">
+                    <button id="closeModal" class="modal-close" aria-label="Close modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div id="modalBody" class="modal-body"></div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="app-footer">
+                <p>Powered by Kaggle Food Dataset &bull; Made with <i class="fa-solid fa-heart" style="color: #ff5252;"></i></p>
+            </footer>
+        </div>
+
+        <!-- Kaggle Indian & Asian Recipes Dataset (1,537 recipes) -->
+        <script src="kaggle_recipes.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
